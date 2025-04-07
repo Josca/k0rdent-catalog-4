@@ -43,7 +43,7 @@ jobs:
           mkdocs build
 
       - name: Build and Deploy pages - fork
-        if: github.event_name == 'push' && github.event.repository.fork == true
+        if: github.repository != 'k0rdent/catalog' && github.ref != 'refs/heads/main'
         run: |
           mkdocs gh-deploy --force
 
